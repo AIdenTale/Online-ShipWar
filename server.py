@@ -4,7 +4,14 @@ import time
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,1)
-server_socket.bind(('26.110.124.72',9090))
+while 1:
+	try:
+		info = list(map(str,input("Введите ip port |>").split()))
+		a = (info[0],int(info[1]))
+			break
+		except:
+			print("Error")
+server_socket.bind(a)
 server_socket.listen(2)
 print("Server started!")
 
